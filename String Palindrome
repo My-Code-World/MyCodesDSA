@@ -1,0 +1,49 @@
+ //With recurrsion
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        String string = s.toLowerCase();
+        String mainString = string.replaceAll("[^a-zA-Z0-9]","");
+        int first=0;
+        int last = mainString.length()-1;
+      return  function(mainString,first,last);
+    }
+    public static boolean function(String mainString,int first,int last)
+    {
+        if(first>=last)
+        {
+            return true;
+        }
+        else if(mainString.charAt(first)!=mainString.charAt(last))
+        {
+            return false;
+        }
+        else{
+            return function(mainString,first+1,last-1);
+        }
+    }
+}
+
+
+// without recurssion
+class Solution {
+    public boolean isPalindrome(String s) {
+        
+        String str = s.replaceAll("[^a-z0-9A-Z]","").toLowerCase();
+        int l=str.length()-1,f=0;
+        while(f<=l)
+        {
+            if(str.charAt(f)!=str.charAt(l))
+            {
+                return false;
+            }
+            else{
+                f=f+1;
+                l=l-1;
+            
+            }
+        }
+       return true; 
+
+    }
+}
